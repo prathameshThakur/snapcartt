@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}
-snapcartt - Home
+Soccer Jersey Store - Home
 {% endblock %}
-{% block body %}
 
+{% block body %}
 <!-- Main Store Body -->
       <div class="row">
         <div class="col-sm">
@@ -26,11 +26,11 @@ snapcartt - Home
             {% for i in range(myShirtsLen) %}
               <tr>
                 <th scope="row">{{ i + 1 }}</th>
-                <td><img src="/static/img/{{ myShirts[i]['image'] }}" width="30px" alt="{{ myShirts[i]['team'] }}" /></td>
+                <td><img src="/static/img/{{ myShirts[i]["image"] }}" width="30px" alt="{{ myShirts[i]["team"] }}" /></td>
                 <td>{{ myShirts[i]["team"] }}</td>
                 <td>{{ myShirts[i]["quantity"] }}</td>
                 <td>{{ myShirts[i]["date"] }}</td>
-                <td><a href="/filter/?id={{ myShirts[i]['id'] }}"><button type="button" class="btn btn-warning">Buy Again</button></a></td>
+                <td><a href="/filter/?id={{ myShirts[i]["id"] }}"><button type="button" class="btn btn-warning">Buy Again</button></a></td>
               </tr>
             </tbody>
             {% endfor %}

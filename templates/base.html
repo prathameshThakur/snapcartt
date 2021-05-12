@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="theme-color" content="#000000">
-        <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+        <link rel="shortcut icon" href="static/img/shopping-cart.svg">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
             crossorigin="anonymous">
         <link href="{{ url_for('static',filename='css/custom.css') }}" rel="stylesheet" type="text/css" />
@@ -50,11 +50,11 @@
                     {% for i in range(shopLen) %}
                       <tr>
                         <th scope="row">{{ i + 1 }}</th>
-                        <td><img src="/static/img/{{ shoppingCart[i]["image"] }}" width="30px" alt="{{ shoppingCart[i]["team"] }}" /></td>
+                        <td><img src="/static/img/{{ shoppingCart[i]['image'] }}" width="30px" alt="{{ shoppingCart[i]['team'] }}" /></td>
                         <td>{{ shoppingCart[i]["team"] }}</td>
-                        <td>{{ shoppingCart[i]['SUM(qty)'] }}</td>
-                        <td>{{ '${:,.2f}'.format(shoppingCart[i]["price"]) }}</td>
-                        <td>{{ '${:,.2f}'.format(shoppingCart[i]['SUM(subTotal)']) }}</td><!--
+                        <td>{{ shoppingCart[i]['qty'] }}</td>
+                        <td>{{ '₹{:,.2f}'.format(shoppingCart[i]["price"]) }}</td>
+                        <td>{{ '₹{:,.2f}'.format(shoppingCart[i]['subtotal']) }}</td><!--
                         <td>
                           <form action="/remove/" methods="GET">
                             <input type="hidden" name="id" value="{{ shoppingCart[i]["id"] }}" />
@@ -66,7 +66,7 @@
                     {% endfor %}
                     <tfoot>
                       <tr>
-                        <td colSpan="7">Total: {{ '${:,.2f}'.format(total) }}<br /><br />
+                        <td colSpan="7">Total: {{ '₹{:,.2f}'.format(total) }}<br /><br />
                           <div class="modal-footer">
                             <a href="/cart/"><button type="button" class="btn btn-primary checkout">Make Changes</button></a>
                             <button type="button" class="btn btn-primary checkout" data-dismiss="modal">Continue Shopping</button>
@@ -102,12 +102,12 @@
   <header>
     <nav class="navbar fixed-top navbar-dark bg-dark navbar-expand-sm box-shadow">
       <a href="/" class="navbar-brand d-flex align-items-center">
-          <strong><i class="far fa-futbol"></i> Soccer Jersey Store</strong>
+          <strong><i class="far fa-futbol"></i>snapcartt</strong>
       </a>
       {% if session %}
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a href="/logout/" class="nav-link">Logout</a></li>
-        <li class="nav-item"><a href="/history/" class="nav-link">You Bought</a></li>
+        <li class="nav-item"><a href="/history/" class="nav-link">Purchased</a></li>
       {% else %}
       <ul class="navbar-nav mr-auto">
         <li class="nav-item"><a href="/new/" class="nav-link">Register</a></li>
@@ -126,7 +126,7 @@
               <a class="dropdown-item" href="/filter/?kind=national">National Teams</a>
               <a class="dropdown-item" href="/filter/?kind=club">Clubs</a>
               <a class="dropdown-item" href="/filter/?sale=1">On Sale</a>
-              <a class="dropdown-item" href="/filter/?price=1">Price $0-$000</a>
+              <a class="dropdown-item" href="/filter/?price=1">Price ₹0-₹000</a>
           </div>
         </li>
       </ul>
@@ -135,7 +135,7 @@
           <span class="glyphicon glyphicon-shopping-cart" data-toggle="modal" data-target="">
             <i class="fas fa-shopping-cart"></i>
             <span class="counter">No. of Items: {{ totItems }}</span>
-            <span class="counter">Total: ${{ '{:,.2f}'.format(total) }}</span>
+            <span class="counter">Total: ₹{{ '{:,.2f}'.format(total) }}</span>
           </span>
         </button>
       </div>
@@ -154,7 +154,7 @@
             <div class="row">
                 <div class="col-md">
                     <hr />
-                    <p>&#169; <a href="/">Soccer Jersey Store</a></p>
+                    <p>&#169; <a href="https://github.com/prathameshThakur">snapcartt</a></p>
                 </div>
             </div>
         </div>
