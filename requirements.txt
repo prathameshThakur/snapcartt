@@ -19,7 +19,7 @@ Mako==1.1.4
 MarkupSafe==1.1.1
 packaging==20.9
 pkginfo==1.7.0
-psycopg2 @ file:///C:/ci/psycopg2_1612298766762/work
+psycopg2 
 Pygments==2.9.0
 pyparsing==2.4.7
 python-dateutil==2.8.1
