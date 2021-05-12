@@ -6,6 +6,7 @@ from datetime import datetime
 import sqlalchemy.dialects.postgresql 
 
 DATABASE_URL = os.environ.get('DATABASE_URL', None)
+DATABASE_URL = 'postgresql' + DATABASE_URL[8:]
 
 # # Instantiate Flask object named app
 app = Flask(__name__)
