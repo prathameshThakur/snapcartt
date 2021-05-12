@@ -1,9 +1,11 @@
+import os
 from simplySQL import SQL
 from flask_session import Session
 from flask import Flask, render_template, redirect, request, session, jsonify
 from datetime import datetime
-
 import sqlalchemy.dialects.postgresql 
+
+DATABASE_URL = os.environ.get('DATABASE_URL', None)
 
 # # Instantiate Flask object named app
 app = Flask(__name__)
@@ -19,7 +21,7 @@ Session(app)
 #db = SQL ( "sqlite:///data.db" )
 
 # cloud heroku
-db = SQL ('postgresql://soqeugdursadgz:6870178bd4968172c42c8f58267a1188b2343cb48058de3848570af5d538e423@ec2-54-87-112-29.compute-1.amazonaws.com:5432/dcggcf0bnea4h5') # database engine object from SQLAlchemy that manages connections to the database
+db = SQL (DATABASE_URL)
 
 #local
 #db = SQL ('postgresql://postgres:123456@localhost/snapcartt') # database engine object from SQLAlchemy that manages connections to the database
