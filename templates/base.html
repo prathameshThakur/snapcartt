@@ -117,7 +117,8 @@
   
       <div class="navbar-collapse collapse" id="navbar">
           {% if session %}
-          <ul class="navbar-nav mr-auto">
+          <ul class="navbar-nav mr-auto"><span class="oi oi-dashboard"></span>
+            <li class="nav-item"><span class="navbar-text" style="color: #f13c20;">Welcome! {{ session['user'] }} &#9829;</span><li>
             <li class="nav-item"><a href="/logout/" class="nav-link">Logout</a></li>
             <li class="nav-item"><a href="/history/" class="nav-link">Purchased</a></li>
           {% else %}
