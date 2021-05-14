@@ -255,6 +255,8 @@ def registration():
     fname = request.form["fname"]
     lname = request.form["lname"]
     email = request.form["email"]
+    if password != confirm:
+        return render_template("new.html", msg="Passwords did not match !!")
     # See if username already in the database
     rows = db.execute( "SELECT * FROM users WHERE username = :username ", username = username )
     # If username already exists, alert user
