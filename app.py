@@ -18,8 +18,6 @@ app.config["SESSION_PERMANENT"] = False
 # app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Creates a connection to the database
-#db = SQL ( "sqlite:///data.db" )
 
 # cloud heroku
 db = SQL (DATABASE_URL)
